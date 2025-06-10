@@ -62,10 +62,10 @@ $(function () {
             logo = $(".navbar .logo> img");
         if (bodyScroll > 100) {
             navbar.addClass("nav-scroll");
-            logo.attr('src', 'img/logo-jmc.png');
+            logo.attr('src', 'img/logo-jmc-new.webp');
         } else {
             navbar.removeClass("nav-scroll");
-            logo.attr('src', 'img/logo-jmc.png');
+            logo.attr('src', 'img/logo-jmc-new.webp');
         }
     });
    
