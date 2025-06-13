@@ -1,716 +1,779 @@
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="pt">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>JMC ANGOLA - Agende o Seu Test Drive</title>
-    <meta name="description" content="Agende o seu test drive com a JMC Angola e experimente a diferença. Pick-ups, SUVs e veículos comerciais.">
-
-    <meta property="og:title" content="JMC ANGOLA - Agende o Seu Test Drive" />
-    <meta property="og:description" content="Agende o seu test drive com a JMC Angola e experimente a diferença. Pick-ups, SUVs e veículos comerciais." />
-    <meta property="og:image" content="https://res.cloudinary.com/dtfx1jpkq/image/upload/f_auto,q_auto,w_1200/v1749281795/confornto_qac4wz.png" />
-
-    <meta property="og:url" content="https://jmcangola.com/testdrive.html" />
-    <link rel="canonical" href="https://jmcangola.com/testdrive.html" />
-
-    <meta property="og:type" content="website" />
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="JMC ANGOLA - Test Drive">
-    <meta name="twitter:description" content="Agende o seu test drive com a JMC Angola e experimente a diferença.">
-    <meta name="twitter:image" content="https://res.cloudinary.com/dtfx1jpkq/image/upload/f_auto,q_auto,w_1200/v1749281795/confornto_qac4wz.png">
-    <link rel="shortcut icon" href="img/favicon1.png" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap">
-    <link rel="stylesheet" href="css/plugins.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JMC Test Drive - Reserve Sua Experiência</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles for testdrive.html */
-        body {
-            background-color: #1a1a1a; /* Primary: Dark navy/black */
-            color: white; /* Text: White/Light gray */
+        *, *:before, *:after {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        .hero-section {
+
+        body {
+            background: linear-gradient(to right, #ff0000 0%, #cc0000 100%); /* More vibrant red gradient */
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
             position: relative;
-            height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body, button, input, select {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+        }
+
+        /* Removed .floating-elements and .car-icon CSS */
+
+        .main-header {
+            background: rgba(62, 62, 62, 0.95);
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px; /* Match container width */
+            margin: auto;
+        }
+
+        .header-logo .logo-img {
+            height: 40px; /* Adjust logo size */
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .header-logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        .header-title {
+            color: #fff;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .background {
+            display: flex;
+            min-height: calc(100vh - 60px); /* Adjust for header height */
+            position: relative;
+            z-index: 2;
+        }
+
+        .container {
+            flex: 0 1 1200px; /* Wider screen for desktop */
+            margin: auto;
+            padding: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .screen {
+            position: relative;
+            background: rgba(62, 62, 62, 0.95);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .screen:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .screen:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 20px;
+            right: 20px;
+            bottom: 0;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            z-index: -1;
+        }
+
+        .screen-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #4d4d4f, #6d6d6f);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            position: relative;
             overflow: hidden;
         }
-        .hero-section video {
+
+        .screen-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .screen-header-left {
+            margin-right: auto;
+        }
+
+        .screen-header-button {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin-right: 5px;
+            border-radius: 50%;
+            background: white;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .screen-header-button:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .screen-header-button.close {
+            background: linear-gradient(135deg, #ed1c6f, #ff4081);
+        }
+
+        .screen-header-button.maximize {
+            background: linear-gradient(135deg, #e8e925, #ffeb3b);
+        }
+
+        .screen-header-button.minimize {
+            background: linear-gradient(135deg, #74c54f, #8bc34a);
+        }
+
+        .screen-header-right {
+            display: flex;
+        }
+
+        .screen-header-ellipsis {
+            width: 4px;
+            height: 4px;
+            margin-left: 3px;
+            border-radius: 50%;
+            background: #999;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .screen-body {
+            display: flex;
+            min-height: 600px;
+        }
+
+        .screen-body-item {
+            flex: 1;
+            padding: 50px;
+        }
+
+        .screen-body-item.left {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(204, 0, 0, 0.1)); /* Adjusted to new red gradient */
+            border-bottom-left-radius: 20px;
+        }
+
+        .app-title {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            color: #ff0000; /* Vibrant red */
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleGlow {
+            from { text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+            to { text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.3); }
+        }
+
+        .app-title:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: -15px;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff0000, #cc0000); /* Vibrant red gradient */
+            border-radius: 2px;
+            animation: expandLine 1.5s ease-out 0.5s both;
+        }
+
+        @keyframes expandLine {
+            from { width: 0; }
+            to { width: 60px; }
+        }
+
+        .app-subtitle {
+            color: #ddd;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .car-showcase {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .test-drive-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .test-drive-image:hover {
+            transform: scale(1.02);
+        }
+
+        .app-contact {
+            margin-top: auto;
+            font-size: 10px;
+            color: #aaa;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 2s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .app-form {
+            animation: slideInRight 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .app-form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .app-form-group.buttons {
+            margin-bottom: 0;
+            text-align: right;
+            margin-top: 40px;
+        }
+
+        .app-form-control, .app-form-select {
+            width: 100%;
+            padding: 15px 0;
+            background: none;
+            border: none;
+            border-bottom: 2px solid #666;
+            color: #ddd;
+            font-size: 14px;
+            text-transform: uppercase;
+            outline: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .app-form-select {
+            text-transform: none;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        .app-form-control::placeholder {
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .app-form-control:focus, .app-form-select:focus {
+            border-bottom-color: #ff0000; /* Vibrant red */
+            transform: translateY(-2px);
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.3);
+        }
+
+        .app-form-control:focus::placeholder {
+            color: #ff0000; /* Vibrant red */
+            transform: translateY(-20px);
+            font-size: 12px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .checkbox-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .checkbox-wrapper input[type="checkbox"] {
+            opacity: 0;
+            position: absolute;
+        }
+
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #666;
+            border-radius: 4px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .checkbox-wrapper input[type="checkbox"]:checked + .checkmark {
+            background: linear-gradient(135deg, #ff0000, #cc0000); /* Vibrant red gradient */
+            border-color: #ff0000; /* Vibrant red */
+            transform: scale(1.1);
+        }
+
+        .checkmark::after {
+            content: '✓';
             position: absolute;
             top: 50%;
             left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            background-size: cover;
-            filter: brightness(0.5); /* Darken the video */
-        }
-        .hero-content {
-            z-index: 1;
-            opacity: 0;
-            animation: fadeInFromTop 1s forwards;
-            animation-delay: 0.5s;
-        }
-        .hero-content h1 {
-            font-size: 4em;
-            color: #ff6b35; /* Accent: Gold/Orange */
-            margin-bottom: 10px;
-            animation: slideInLeft 1s forwards;
-            animation-delay: 1s;
-        }
-        .hero-content p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            animation: slideInLeft 1s forwards;
-            animation-delay: 1.5s;
-        }
-        .hero-content .button-1 {
-            opacity: 0;
-            animation: bounceIn 1s forwards;
-            animation-delay: 2s;
-        }
-
-        /* Animations */
-        @keyframes fadeInFromTop {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-100px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes bounceIn {
-            0% { transform: scale(0.3); opacity: 0; }
-            50% { transform: scale(1.05); opacity: 1; }
-            70% { transform: scale(0.9); }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .section-padding {
-            padding: 80px 0;
-        }
-        .section-title span {
-            color: #ff6b35;
-        }
-        .model-card {
-            background-color: #2c3e50; /* Secondary: Deep blue */
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            opacity: 0; /* For scroll animation */
-            transform: translateY(50px); /* For scroll animation */
-        }
-        .model-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
-        .model-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .model-card-content {
-            padding: 20px;
-            text-align: center;
-        }
-        .model-card-content h4 {
-            color: #ff6b35;
-            margin-bottom: 10px;
-        }
-        .model-card-content p {
-            font-size: 0.9em;
-            color: #ccc;
-        }
-
-        /* Form Section */
-        .form-section {
-            background-color: #2c3e50; /* Secondary: Deep blue */
-            padding: 60px;
-            border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            opacity: 0; /* For scroll animation */
-            transform: translateY(50px); /* For scroll animation */
-        }
-        .form-section .form-group {
-            margin-bottom: 20px;
-        }
-        .form-section label {
-            display: block;
-            margin-bottom: 8px;
+            transform: translate(-50%, -50%) scale(0);
             color: white;
-            font-weight: 500;
+            font-weight: bold;
+            transition: transform 0.2s ease;
         }
-        .form-section input[type="text"],
-        .form-section input[type="email"],
-        .form-section input[type="tel"],
-        .form-section input[type="date"],
-        .form-section select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #444;
-            border-radius: 5px;
-            background-color: #1a1a1a;
+
+        .checkbox-wrapper input[type="checkbox"]:checked + .checkmark::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .checkbox-label {
+            color: #ddd;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .app-form-button {
+            background: linear-gradient(135deg, #ff0000, #cc0000); /* Vibrant red gradient */
+            border: none;
             color: white;
-            font-size: 1em;
-            transition: border-color 0.3s ease-in-out;
-        }
-        .form-section input[type="text"]:focus,
-        .form-section input[type="email"]:focus,
-        .form-section input[type="tel"]:focus,
-        .form-section input[type="date"]:focus,
-        .form-section select:focus {
-            border-color: #ff6b35;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
             outline: none;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-        .form-section .select2-container--default .select2-selection--single {
-            background-color: #1a1a1a;
-            border: 1px solid #444;
-            border-radius: 5px;
-            height: 48px; /* Adjust height to match inputs */
+
+        .app-form-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
         }
-        .form-section .select2-container--default .select2-selection--single .select2-selection__rendered {
-            color: white;
-            line-height: 46px; /* Adjust line-height to match height */
-            padding-left: 15px;
+
+        .app-form-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4); /* Vibrant red shadow */
         }
-        .form-section .select2-container--default .select2-selection--single .select2-selection__arrow {
-            height: 46px; /* Adjust height to match inputs */
+
+        .app-form-button:hover::before {
+            left: 100%;
         }
-        .form-section .select2-dropdown {
-            background-color: #1a1a1a;
-            border: 1px solid #444;
+
+        .app-form-button.cancel {
+            background: linear-gradient(135deg, #666, #444);
         }
-        .form-section .select2-container--default .select2-results__option--highlighted[aria-selected] {
-            background-color: #ff6b35;
-            color: white;
+
+        .app-form-button.cancel:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
-        .form-section .select2-container--default .select2-results__option[aria-selected="true"] {
-            background-color: #444;
-            color: white;
+
+        .credits {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            animation: fadeIn 1s ease-out 3s both;
         }
-        .form-section .checkbox-group {
+
+        .credits-link {
             display: flex;
             align-items: center;
-            margin-top: 15px;
-        }
-        .form-section .checkbox-group input[type="checkbox"] {
-            margin-right: 10px;
-            width: auto;
-        }
-        .form-section .checkbox-group label {
-            margin-bottom: 0;
-            font-size: 0.9em;
-        }
-        .form-section button[type="submit"] {
-            background-color: #ff6b35;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 5px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-            width: 100%;
-            margin-top: 20px;
-        }
-        .form-section button[type="submit"]:hover {
-            background-color: #e05a2a;
-            transform: translateY(-3px);
-        }
-        .form-section button[type="submit"]:disabled {
-            background-color: #555;
-            cursor: not-allowed;
+            color: #fff;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
 
-        /* Scroll animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        .credits-link:hover {
+            color: #ff0000; /* Vibrant red */
+            transform: scale(1.05);
         }
-        .animate-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
+
+        .road-animation {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                #ffeb3b 25%, 
+                transparent 50%, 
+                #ffeb3b 75%, 
+                transparent 100%);
+            background-size: 100px 4px;
+            animation: roadMove 2s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes roadMove {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(100px); }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .main-header {
+                padding: 8px 15px;
+            }
+
+            .header-logo .logo-img {
+                height: 30px;
+            }
+
+            .header-title {
+                font-size: 20px;
+            }
+
+            .screen-body {
+                flex-direction: column;
+            }
+            
+            .screen-body-item.left {
+                margin-bottom: 30px;
+                border-bottom-left-radius: 0;
+            }
+            
+            .app-title {
+                flex-direction: row;
+                font-size: 24px;
+            }
+            
+            .app-title span {
+                margin-right: 15px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .screen-body-item {
+                padding: 30px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .header-title {
+                font-size: 18px;
+            }
+
+            .screen-body-item {
+                padding: 20px;
+            }
+            
+            .app-form-button {
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            .app-form-group.buttons {
+                text-align: center;
+            }
+            
+            .app-title {
+                font-size: 20px;
+            }
+        }
+
+        /* Success Animation */
+        .success-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease;
+        }
+
+        .success-message.show {
+            transform: translate(-50%, -50%) scale(1);
         }
     </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader-bg"></div>
-    <div id="preloader">
-        <div id="preloader-status">
-            <div class="preloader-position loader"> <span></span> </div>
-        </div>
-    </div>
-    <!-- A carregar -->
-    <!-- Progress scroll totop -->
-    <div class="progress-wrap cursor-pointer">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-        </svg>
-    </div>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <!-- Logo -->
-            <div class="logo-wrapper">
-                <a class="logo" href="index.html"> <img src="img/logo-jmc-new.webp" class="logo-img" alt="" style="height: 35px; width: auto;"> </a>
-                <!-- <a class="logo" href="index.html"><h2>Renta<span>x</span></h2></a> -->
-            </div>
-            <!-- Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span> </button>
-            <!-- Menu -->
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">MODELOS <i class="ti-angle-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#" class="dropdown-item"><span>GRAND AVENUE</span></a></li>
-                            <li><a href="#" class="dropdown-item"><span>VIGUS LUXURY</span></a></li>
-                            <li><a href="#" class="dropdown-item"><span>VIGUS</span></a></li>
-                            <li><a href="#" class="dropdown-item"><span>TOURING</span></a></li>
-                            <li><a href="#" class="dropdown-item"><span>JINGMA BUS</span></a></li>
-                            <li><a href="#" class="dropdown-item"><span>CARRYING </span></a></li>
-                            <li><a href="#" class="dropdown-item"><span>CABINE ÚNICA</span></a></li>
-                            <li><a href="#" class="dropdown-item"><span>CAMINHÃO FRIGORÍFICO</span></a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="sobre.html">SOBRE</a></li>
-                    <li class="nav-item"><a class="nav-link" href="campanha/index.html">CAMPANHAS</a></li>
-                    <li class="nav-item"><a class="nav-link" href="noticias.html">NOTÍCIAS</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pos-venda.html">PÓS-VENDA</a></li>
-                </ul>
-                <div class="navbar-right">
-                    <div class="wrap" style="cursor: pointer;">
-                        <div class="icon"> <i class="flaticon-car" style="font-size: 33px;"></i> </div>
-                        <div class="text">
-                            <p>Vamos experimentar?</p>
-                            <h5>Test Drive</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="hero-section">
-        <video autoplay loop muted playsinline preload="auto">
-            <source src="https://res.cloudinary.com/dtfx1jpkq/video/upload/q_auto,f_auto/JMC_Grand_Avenue___Conquer_the_Wild_pxtk30" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="hero-content">
-            <h1>Experimente a Diferença JMC</h1>
-            <p>Agende o Seu Test Drive</p>
-            <a href="#form-section" class="button-1">Agendar Agora <span class="ti-arrow-top-right"></span></a>
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="header-logo">
+                <img src="img/logo-jmc-new.webp" alt="JMC Angola Logo" class="logo-img">
+            </a>
         </div>
     </header>
 
-    <!-- Model Selection Section -->
-    <section class="section-padding animate-on-scroll">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center mb-50">
-                    <div class="section-subtitle">Nossos Modelos</div>
-                    <div class="section-title">Escolha o Seu <span>JMC</span></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="model-card animate-on-scroll">
-                        <img src="img/blog/6.webp" alt="JMC GRAND AVENUE">
-                        <div class="model-card-content">
-                            <h4>JMC GRAND AVENUE (Automática e Manual)</h4>
-                            <p>Potência e conforto para qualquer aventura.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="model-card animate-on-scroll">
-                        <img src="img/blog/8.webp" alt="JMC VIGUS LUXURY">
-                        <div class="model-card-content">
-                            <h4>JMC VIGUS LUXURY</h4>
-                            <p>Sofisticação e robustez em um só veículo.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="model-card animate-on-scroll">
-                        <img src="img/cars/c2.jpg" alt="JMC VIGUS">
-                        <div class="model-card-content">
-                            <h4>JMC VIGUS</h4>
-                            <p>A pick-up ideal para o trabalho e lazer.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="model-card animate-on-scroll">
-                        <img src="img/blog/11.webp" alt="JMC TOURING">
-                        <div class="model-card-content">
-                            <h4>JMC TOURING (15 lugares e Transporte de Carga)</h4>
-                            <p>Versatilidade para passageiros e carga.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="model-card animate-on-scroll">
-                        <img src="img/cars/c7.jpg" alt="JINGMA BUS">
-                        <div class="model-card-content">
-                            <h4>JINGMA BUS (30 e 23 lugares)</h4>
-                            <p>Transporte de passageiros com segurança e eficiência.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="model-card animate-on-scroll">
-                        <img src="img/blog/55.webp" alt="JMC CARRYING">
-                        <div class="model-card-content">
-                            <h4>JMC CARRYING (vários tamanhos)</h4>
-                            <p>Soluções de carga adaptáveis às suas necessidades.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="model-card animate-on-scroll">
-                        <img src="img/cars/c9.jpg" alt="JMC CAMINHÃO FRIGORÍFICO">
-                        <div class="model-card-content">
-                            <h4>JMC CAMINHÃO FRIGORÍFICO</h4>
-                            <p>Transporte refrigerado com total confiança.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="road-animation"></div>
 
-    <!-- Form Section -->
-    <section id="form-section" class="section-padding animate-on-scroll">
+    <div class="background">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center mb-50">
-                    <div class="section-subtitle">Agende o Seu Test Drive</div>
-                    <div class="section-title">Preencha o Formulário</div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-10">
-                    <div class="form-section animate-on-scroll">
-                        <form action="#" method="post" class="testdrive-form">
-                            <div class="form-group animate-on-scroll" style="animation-delay: 0.1s;">
-                                <label for="nome">Nome Completo</label>
-                                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
-                            </div>
-                            <div class="form-group animate-on-scroll" style="animation-delay: 0.2s;">
-                                <label for="telefone">Telefone</label>
-                                <input type="tel" id="telefone" name="telefone" placeholder="Seu número de telefone" required>
-                            </div>
-                            <div class="form-group animate-on-scroll" style="animation-delay: 0.3s;">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Seu endereço de email" required>
-                            </div>
-                            <div class="form-group animate-on-scroll" style="animation-delay: 0.4s;">
-                                <label for="modelo">Modelo de Interesse</label>
-                                <select id="modelo" name="modelo" required>
-                                    <option value="">Selecione um modelo</option>
-                                    <option value="JMC GRAND AVENUE (Automática)">JMC GRAND AVENUE (Automática)</option>
-                                    <option value="JMC GRAND AVENUE (Manual)">JMC GRAND AVENUE (Manual)</option>
-                                    <option value="JMC VIGUS LUXURY">JMC VIGUS LUXURY</option>
-                                    <option value="JMC VIGUS">JMC VIGUS</option>
-                                    <option value="JMC TOURING (15 lugares)">JMC TOURING (15 lugares)</option>
-                                    <option value="JMC TOURING (Transporte de Carga)">JMC TOURING (Transporte de Carga)</option>
-                                    <option value="JINGMA BUS (30 lugares)">JINGMA BUS (30 lugares)</option>
-                                    <option value="JINGMA BUS (23 lugares)">JINGMA BUS (23 lugares)</option>
-                                    <option value="JMC CARRYING (vários tamanhos)">JMC CARRYING (vários tamanhos)</option>
-                                    <option value="JMC CAMINHÃO FRIGORÍFICO">JMC CAMINHÃO FRIGORÍFICO</option>
-                                </select>
-                            </div>
-                            <div class="form-group animate-on-scroll" style="animation-delay: 0.5s;">
-                                <label for="data">Data Preferida para Test Drive</label>
-                                <input type="date" id="data" name="data" required>
-                            </div>
-                            <div class="form-group animate-on-scroll" style="animation-delay: 0.6s;">
-                                <label for="hora">Hora Preferida para Test Drive</label>
-                                <input type="time" id="hora" name="hora" required>
-                            </div>
-                            <div class="checkbox-group animate-on-scroll" style="animation-delay: 0.7s;">
-                                <input type="checkbox" id="privacy" name="privacy" required>
-                                <label for="privacy">Eu concordo com a política de privacidade.</label>
-                            </div>
-                            <button type="submit" class="animate-on-scroll" style="animation-delay: 0.8s;">Agendar Test Drive</button>
-                        </form>
+            <div class="screen">
+                <div class="screen-header">
+                    <div class="screen-header-left">
+                        <div class="screen-header-button close"></div>
+                        <div class="screen-header-button maximize"></div>
+                        <div class="screen-header-button minimize"></div>
+                    </div>
+                    <div class="screen-header-right">
+                        <div class="screen-header-ellipsis"></div>
+                        <div class="screen-header-ellipsis"></div>
+                        <div class="screen-header-ellipsis"></div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer clearfix">
-        <div class="container">
-            <div class="first-footer">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="links dark footer-contact-links">
-                            <div class="footer-contact-links-wrapper">
-                                <div class="footer-contact-link-wrapper">
-                                    <div class="image-wrapper footer-contact-link-icon">
-                                        <div class="icon-footer"> <i class="flaticon-phone-call"></i> </div>
-                                    </div>
-                                    <div class="footer-contact-link-content">
-                                        <h6>Ligue para nós</h6>
-                                        <p>+244 928 283 666 / +244 926 267 111</p>
-                                    </div>
-                                </div>
-                                <div class="footer-contact-links-divider"></div>
-                                <div class="footer-contact-link-wrapper">
-                                    <div class="image-wrapper footer-contact-link-icon">
-                                        <div class="icon-footer"> <i class="omfi-envelope"></i> </div>
-                                    </div>
-                                    <div class="footer-contact-link-content">
-                                        <h6>Escreva para nós</h6>
-                                        <p>info@jmc-angola.com</p>
-                                    </div>
-                                </div>
-                                <div class="footer-contact-links-divider"></div>
-                                <div class="footer-contact-link-wrapper">
-                                    <div class="image-wrapper footer-contact-link-icon">
-                                        <div class="icon-footer"> <i class="omfi-location"></i> </div>
-                                    </div>
-                                    <div class="footer-contact-link-content">
-                                        <h6>Endereço</h6>
-                                        <p>Paragem da Mutamba, via expresse, Luanda, Angola</p>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="screen-body">
+                    <div class="screen-body-item left">
+                        <div class="app-title">
+                            <span>TEST</span>
+                            <span>DRIVE</span>
+                        </div>
+                        <div class="app-subtitle">
+                            Reserve sua experiência única com os veículos JMC
+                        </div>
+                        <div class="car-showcase">
+                            <img src="img/cars/01.webp" alt="JMC Car" class="test-drive-image">
+                        </div>
+                        <div class="app-contact">
+                            <strong>INFORMAÇÕES DE CONTACTO:</strong><br>
+                            📞 +244 928 283 666 / +244 926 267 111<br>
+                            📧 info@jmc-angola.com<br>
+                            📍 Paragem da Mutamba, via expresse, Luanda, Angola<br><br>
+                            <em>Experimente a qualidade e performance dos nossos veículos</em>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="second-footer">
-                <div class="row">
-                    <div class="col-md-4 widget-area">
-                        <div class="widget clearfix">
-                            <div class="footer-logo"><img src="img/logo-jmc.png" alt="JMC Angola" style="height: 60px; width: auto;"></div>
-                            <div class="widget-text">
-                                <p>Representante oficial JMC Motors em Angola. Entre em contato para aluguel e vendas.</p>
-                                <div class="social-icons">
-                                    <ul class="list-inline">
-                                        <li><a href="https://wa.me/244928283666" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
-                                        <li><a href="https://facebook.com/jmc.angola" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
-                                        <li><a href="https://youtube.com/jmcangola" target="_blank"><i class="fa-brands fa-youtube"></i></a></li>
-                                    </ul>
+                    <div class="screen-body-item">
+                        <div class="app-form">
+                            <form id="testDriveForm">
+                                <div class="app-form-group">
+                                    <input class="app-form-control" type="text" name="nome" placeholder="NOME COMPLETO" required>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 offset-md-1 widget-area">
-                        <div class="widget clearfix usful-links">
-                            <h3 class="widget-title">Links Rápidos</h3>
-                            <ul>
-                                <li><a href="sobre.html">Sobre</a></li>
-                                <li><a href="#cars.html">Carros</a></li>
-                                <li><a href="#car-types.html">Tipos de Carro</a></li>
-                                <li><a href="#team.html">Equipe</a></li>
-                                <li><a href="#contact.html">Contacto</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4 widget-area">
-                        <div class="widget clearfix">
-                            <h3 class="widget-title">Subscreva</h3>
-                            <p>Quer ser notificado sobre os nossos serviços? Inscreva-se e enviaremos uma notificação por e-mail.</p>
-                            <div class="widget-newsletter">
-                                <form action="#">
-                                    <input type="email" placeholder="Endereço de Email" required>
-                                    <button type="submit"><i class="ti-arrow-top-right"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bottom-footer-text">
-                <div class="row copyright">
-                    <div class="col-md-12">
-                        <p class="mb-0">&copy;2025 <a href="#">Md Corporation</a>. Todos direitos reservados.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- RentNow Popup -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Booking Form</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="booking-box">
-                        <div class="booking-inner clearfix">
-                            <form method="post" action="#0" class="form1 contact__form clearfix">
-                                <!-- form message -->
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="alert alert-success contact__msg" style="display: none" role="alert"> Your message was sent successfully. </div>
-                                    </div>
+                                <div class="app-form-group">
+                                    <input class="app-form-control" type="tel" name="telefone" placeholder="TELEFONE" required>
                                 </div>
-                                <!-- form elements -->
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12">
-                                        <input name="name" type="text" placeholder="Full Name *" required>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <input name="email" type="email" placeholder="Email *" required>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <input name="phone" type="text" placeholder="Phone *" required>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="select1_wrapper">
-                                            <label>Choose Car Type</label>
-                                            <div class="select1_inner">
-                                                <select class="select2 select" style="width: 100%">
-                                                    <option value="0">Choose Car Type</option>
-                                                    <option value="1">All</option>
-                                                    <option value="2">Luxury Cars</option>
-                                                    <option value="3">Sport Cars</option>
-                                                    <option value="4">SUVs</option>
-                                                    <option value="5">Convertible</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="select1_wrapper">
-                                            <label>Pick Up Location</label>
-                                            <div class="select1_inner">
-                                                <select class="select2 select" style="width: 100%">
-                                                    <option value="0">Pick Up Location</option>
-                                                    <option value="1">Dubai</option>
-                                                    <option value="2">Abu Dhabi</option>
-                                                    <option value="3">Sharjah</option>
-                                                    <option value="4">Alain</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="input1_wrapper">
-                                            <label>Pick Up Date</label>
-                                            <div class="input1_inner">
-                                                <input type="text" class="form-control input datepicker" placeholder="Pick Up Date" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="select1_wrapper">
-                                            <label>Drop Off Location</label>
-                                            <div class="select1_inner">
-                                                <select class="select2 select" style="width: 100%">
-                                                    <option value="0">Drop Off Location</option>
-                                                    <option value="1">Alain</option>
-                                                    <option value="2">Sharjah</option>
-                                                    <option value="3">Abu Dhabi</option>
-                                                    <option value="4">Dubai</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <div class="input1_wrapper">
-                                            <label>Return Date</label>
-                                            <div class="input1_inner">
-                                                <input type="text" class="form-control input datepicker" placeholder="Return Date">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12 form-group">
-                                        <textarea name="message" id="message" cols="30" rows="4" placeholder="Additional Note"></textarea>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12">
-                                        <button type="submit" class="booking-button mt-15">Rent Now</button>
-                                    </div>
+                                <div class="app-form-group">
+                                    <input class="app-form-control" type="email" name="email" placeholder="EMAIL" required>
+                                </div>
+                                <div class="app-form-group" style="color: black;">
+                                    <select class="app-form-select" name="modelo" required>
+                                        <option value="" style="color: black;">Selecione um modelo</option>
+                                        <option value="JMC GRAND AVENUE (Automática)" style="color: black;">JMC GRAND AVENUE (Automática)</option>
+                                        <option value="JMC GRAND AVENUE (Manual)" style="color: black;">JMC GRAND AVENUE (Manual)</option>
+                                        <option value="JMC VIGUS LUXURY" style="color: black;">JMC VIGUS LUXURY</option>
+                                        <option value="JMC VIGUS" style="color: black;">JMC VIGUS</option>
+                                        <option value="JMC TOURING (15 lugares)" style="color: black;">JMC TOURING (15 lugares)</option>
+                                        <option value="JMC TOURING (Transporte de Carga)" style="color: black;">JMC TOURING (Transporte de Carga)</option>
+                                        <option value="JINGMA BUS (30 lugares)" style="color: black;">JINGMA BUS (30 lugares)</option>
+                                        <option value="JINGMA BUS (23 lugares)" style="color: black;">JINGMA BUS (23 lugares)</option>
+                                        <option value="JMC CARRYING (vários tamanhos)" style="color: black;">JMC CARRYING (vários tamanhos)</option>
+                                        <option value="JMC CAMINHÃO FRIGORÍFICO" style="color: black;">JMC CAMINHÃO FRIGORÍFICO</option>
+                                    </select>
+                                </div>
+                                <div class="app-form-group">
+                                    <input class="app-form-control" type="date" name="data" placeholder="DATA PREFERIDA" required>
+                                </div>
+                                <div class="app-form-group">
+                                    <input class="app-form-control" type="time" name="hora" placeholder="HORA PREFERIDA" required>
+                                </div>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-wrapper">
+                                        <input type="checkbox" name="privacidade" required>
+                                        <span class="checkmark"></span>
+                                        <span class="checkbox-label">Eu concordo com a política de privacidade</span>
+                                    </label>
+                                </div>
+                                <div class="app-form-group buttons">
+                                    <button type="submit" class="app-form-button">AGENDAR TEST DRIVE</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="credits">
+                Powered by MD Corporation - Sua próxima aventura começa aqui
+            </div>
         </div>
     </div>
-    <!-- jQuery -->
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/jquery-migrate-3.4.1.min.js"></script>
-    <script src="js/modernizr-2.6.2.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/jquery.isotope.v3.0.2.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/scrollIt.min.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/jquery.magnific-popup.js"></script>
-    <script src="js/select2.js"></script>
-    <script src="js/datepicker.js"></script>
-    <script src="js/YouTubePopUp.js"></script>
-    <script src="js/vegas.slider.min.js"></script>
-    <script src="js/custom.js"></script>
+
+    <div class="success-message" id="successMessage">
+        <h3>🎉 Test Drive Agendado!</h3>
+        <p>Entraremos em contacto em breve para confirmar os detalhes.</p>
+    </div>
+
     <script>
-        // Smooth scroll to form section
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Form submission handler
+        document.getElementById('testDriveForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            
+            // Hide success message after 3 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+                resetForm();
+            }, 3000);
+        });
+
+        // Reset form function
+        function resetForm() {
+            document.getElementById('testDriveForm').reset();
+        }
+
+        // Enhanced animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe form elements for enhanced animations
+        document.querySelectorAll('.app-form-group').forEach((el, index) => {
+            el.style.animationDelay = `${index * 0.1}s`;
+            observer.observe(el);
+        });
+
+        // Enhanced input focus effects
+        document.querySelectorAll('.app-form-control, .app-form-select').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+                this.parentElement.style.transition = 'transform 0.3s ease';
+            });
+
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
             });
         });
 
-        // Intersection Observer for scroll animations
-        document.addEventListener('DOMContentLoaded', () => {
-            const animateElements = document.querySelectorAll('.animate-on-scroll');
+        // Parallax effect for background elements (removed as floating-elements are gone)
+        // window.addEventListener('scroll', () => {
+        //     const scrolled = window.pageYOffset;
+        //     const parallax = document.querySelector('.floating-elements');
+        //     const speed = scrolled * 0.5;
+        //     parallax.style.transform = `translateY(${speed}px)`;
+        // });
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Stop observing once visible
-                    }
-                });
-            }, {
-                threshold: 0.1 // Trigger when 10% of the element is visible
-            });
-
-            animateElements.forEach(element => {
-                observer.observe(element);
-            });
-
-            // Initialize Select2 for the model dropdown
-            $('#modelo').select2({
-                minimumResultsForSearch: Infinity // Hides the search box
-            });
-
-            // Initialize datepicker
-            $('.datepicker').datepicker({
-                autoclose: true,
-                todayHighlight: true,
-                format: 'yyyy-mm-dd'
+        // Header buttons interaction
+        document.querySelectorAll('.screen-header-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
             });
         });
     </script>
 </body>
-
-</html>
