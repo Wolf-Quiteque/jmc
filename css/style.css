@@ -874,6 +874,9 @@ hr {
 .navbar .dropdown-menu .dropdown-item span {
     display: block;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .navbar .dropdown-menu .dropdown-item i {
     padding: 13px 0 0 5px;
