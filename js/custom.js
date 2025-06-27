@@ -125,7 +125,7 @@ $(function () {
             autoplayTimeout: 5000,
             animateOut: 'fadeOut',
             nav: false,
-            navText: ['<i class="ti-angle-left" aria-hidden="true"></i>', '<i class="ti-angle-right" aria-hidden="true"></i>']
+            navText: ['<i class="ti-angle-left" aria-hidden="true" ></i>', '<i class="ti-angle-right" aria-hidden="true"></i>']
         });
         owl.on('changed.owl.carousel', function (event) {
             var item = event.item.index - 2; // Position of the current item
@@ -157,7 +157,7 @@ $(function () {
         autoplayTimeout: 5000,
         dots: true,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr ti-angle-left' ></span>", "<span class='lnr ti-angle-right'></span>"],
         autoplayHoverPause: true,
         responsiveClass: true,
         responsive: {
@@ -280,7 +280,7 @@ $(function () {
         autoplayTimeout: 5000,
         dots: true,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr ti-angle-left text-white'></span>", "<span class='lnr ti-angle-right'></span>"],
         autoplayHoverPause: true,
         responsiveClass: true,
         responsive: {
@@ -404,7 +404,7 @@ $(function () {
         dots: true,
         autoplayHoverPause: true,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr ti-angle-left' style='color:white;'></span>", "<span class='lnr ti-angle-right' style='color:white;'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
