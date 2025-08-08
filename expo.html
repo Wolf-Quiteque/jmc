@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/plugins.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="shortcut icon" href="img/favicon1.png" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
   /* Prevent horizontal scrolling */
@@ -231,114 +232,23 @@ video {
     </div>
 </div>
                 <!-- Content -->
-<div class="col-lg-8 col-md-12 car-list"> 
-    <div class="row">
-        <!-- JMC Vigus (Pickup) -->
-        <div class="col-lg-6 col-md-12 mb-30">
-            <div class="item">
-                <figure><img src="img/blog/8.webp" alt="JMC Vigus" class="img-fluid"></figure>
-                <div class="content">
-                    <div class="cont">
-                        <h3>VIGUS </h3>
-                        <div class="features"><span><i class="fas fa-horse-head"></i> Potência</span><p>163 CV (Diesel 2.0L)</p></div>
-                        <div class="features"><span><i class="omfi-transmission"></i> Transmissão</span><p>Automática 6 velocidades</p></div>
-                        <div class="features"><span><i class="fas fa-bolt"></i> Torque</span><p>375 Nm @ 1.800rpm</p></div>
-                        <div class="book mt-30">
-                            <a href="car-details.html" class="button-1">Detalhes</a>
+                <div class="col-lg-8 col-md-12 car-list">
+                    <div class="row" id="car-list-content">
+                        <!-- Content will be loaded from Markdown -->
+                    </div>
+                    <!-- Pagination -->
+                    <div class="row">
+                        <div class="col-md-12 mt-30 text-center">
+                            <ul class="pagination-wrap">
+                                <li><a href="#"><i class="ti-angle-left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#" class="active">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#"><i class="ti-angle-right"></i></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- JMC Grand Avenue (SUV) -->
-        <div class="col-lg-6 col-md-12 mb-30">
-            <div class="item">
-                <figure><img src="img/blog/6.webp" alt="JMC Grand Avenue" class="img-fluid"></figure>
-                <div class="content">
-                    <div class="cont">
-                        <h3>GRAND AVENUE</h3>
-                        <div class="features"><span><i class="fas fa-horse-head"></i> Potência</span><p>190 CV (Gasolina 2.0T)</p></div>
-                        <div class="features"><span><i class="omfi-transmission"></i> Transmissão</span><p>Automática 8 velocidades</p></div>
-                        <div class="features"><span><i class="fas fa-bolt"></i> Torque</span><p>350 Nm @ 1.500rpm</p></div>
-                        <div class="book mt-30">
-                            <a href="car-details.html" class="button-1">Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- JMC Touring (Family SUV) -->
-        <div class="col-lg-6 col-md-12 mb-30">
-            <div class="item">
-                <figure><img src="img/car_model/Touring/touring.webp" alt="JMC Touring" class="img-fluid"></figure>
-                <div class="content">
-                    <div class="cont">
-                        <h3>TOURING</h3>
-                        <div class="features"><span><i class="fas fa-horse-head"></i> Potência</span><p>150 CV (Diesel 2.2L)</p></div>
-                        <div class="features"><span><i class="omfi-transmission"></i> Transmissão</span><p>Manual 6 velocidades</p></div>
-                        <div class="features"><span><i class="fas fa-bolt"></i> Torque</span><p>320 Nm @ 1.600rpm</p></div>
-                        <div class="book mt-30">
-                            <a href="car-details.html" class="button-1">Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- JMC Carring (Passenger Van) -->
-        <div class="col-lg-6 col-md-12 mb-30">
-            <div class="item">
-                <figure><img src="img/car_model/Carring/carringsale.webp" alt="JMC Carring" class="img-fluid"></figure>
-                <div class="content">
-                    <div class="cont">
-                        <h3>CARRING</h3>
-                        <div class="features"><span><i class="omfi-passengers"></i> Capacidade</span><p>9-15 Passageiros</p></div>
-                        <div class="features"><span><i class="omfi-engine"></i> Motor</span><p>2.4L Diesel Turbo (136 CV)</p></div>
-                        <div class="features"><span><i class="fas fa-gas-pump"></i> Consumo</span><p>8.2L/100km</p></div>
-                        <div class="book mt-30">
-                            <a href="car-details.html" class="button-1">Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- JMC Carring Plus (Refrigerated Commercial) -->
-        <div class="col-lg-6 col-md-12 mb-30">
-            <div class="item">
-                <figure><img src="img/car_model/CarringPlus/carringplus.webp" alt="JMC Carring Plus" class="img-fluid"></figure>
-                <div class="content">
-                    <div class="cont">
-                        <h3>CARRING PLUS</h3>
-                        <div class="features"><span><i class="fas fa-truck-loading"></i> Carga</span><p>3.5 toneladas</p></div>
-                        <div class="features"><span><i class="fas fa-snowflake"></i> Refrigeração</span><p>-18°C a 0°C</p></div>
-                        <div class="features"><span><i class="omfi-engine"></i> Motor</span><p>2.0L Diesel (160 CV)</p></div>
-                        <div class="book mt-30">
-                            <a href="car-details.html" class="button-1">Detalhes</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Add more entries as needed -->
-    </div>
-
-    <!-- Pagination -->
-    <div class="row">
-        <div class="col-md-12 mt-30 text-center">
-            <ul class="pagination-wrap">
-                <li><a href="#"><i class="ti-angle-left"></i></a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#" class="active">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#"><i class="ti-angle-right"></i></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
 
             </div>
         </div>
@@ -525,6 +435,78 @@ video {
     <script src="js/datepicker.js"></script>
     <script src="js/YouTubePopUp.js"></script>
     <script src="js/custom.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/content/pages/expo.md')
+                .then(response => response.text())
+                .then(markdown => {
+                    const content = markdown.split('---')[2].trim();
+                    const carsMatch = content.match(/## Carros([\s\S]*)/);
+                    if (carsMatch) {
+                        const carsHtml = marked.parse(carsMatch[1].trim());
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = carsHtml;
+
+                        const items = tempDiv.querySelectorAll('li');
+                        let htmlOutput = '';
+                        let currentCar = null;
+
+                        items.forEach(item => {
+                            if (item.querySelector('h3')) { // New car item
+                                if (currentCar) {
+                                    htmlOutput += createCarCard(currentCar);
+                                }
+                                currentCar = {
+                                    name: item.querySelector('h3').textContent.trim()
+                                };
+                            } else if (currentCar) {
+                                const text = item.textContent.trim();
+                                const [key, value] = text.split(':').map(s => s.trim());
+                                if (key && value) {
+                                    currentCar[key.toLowerCase()] = value.replace(/`/g, '');
+                                }
+                            }
+                        });
+
+                        if (currentCar) { // Add the last car
+                            htmlOutput += createCarCard(currentCar);
+                        }
+
+                        document.getElementById('car-list-content').innerHTML = htmlOutput;
+                    }
+                })
+                .catch(err => console.error('Error loading content:', err));
+
+            function createCarCard(car) {
+                let features = '';
+                if (car.potencia) features += `<div class="features"><span><i class="fas fa-horse-head"></i> Potência</span><p>${car.potencia}</p></div>`;
+                if (car.transmissao) features += `<div class="features"><span><i class="omfi-transmission"></i> Transmissão</span><p>${car.transmissao}</p></div>`;
+                if (car.torque) features += `<div class="features"><span><i class="fas fa-bolt"></i> Torque</span><p>${car.torque}</p></div>`;
+                if (car.capacidade) features += `<div class="features"><span><i class="omfi-passengers"></i> Capacidade</span><p>${car.capacidade}</p></div>`;
+                if (car.motor) features += `<div class="features"><span><i class="omfi-engine"></i> Motor</span><p>${car.motor}</p></div>`;
+                if (car.consumo) features += `<div class="features"><span><i class="fas fa-gas-pump"></i> Consumo</span><p>${car.consumo}</p></div>`;
+                if (car.carga) features += `<div class="features"><span><i class="fas fa-truck-loading"></i> Carga</span><p>${car.carga}</p></div>`;
+                if (car.refrigeracao) features += `<div class="features"><span><i class="fas fa-snowflake"></i> Refrigeração</span><p>${car.refrigeracao}</p></div>`;
+
+                return `
+                    <div class="col-lg-6 col-md-12 mb-30">
+                        <div class="item">
+                            <figure><img src="${car.imagem}" alt="${car.name}" class="img-fluid"></figure>
+                            <div class="content">
+                                <div class="cont">
+                                    <h3>${car.name}</h3>
+                                    ${features}
+                                    <div class="book mt-30">
+                                        <a href="${car.link}" class="button-1">Detalhes</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+    </script>
 </body>
 
 <!-- Mirrored from duruthemes.com/demo/html/renax/dark/cars.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 Jun 2025 13:32:53 GMT -->
