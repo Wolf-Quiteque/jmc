@@ -53,7 +53,7 @@ video {
   overflow: hidden;
 }
 </style>
-<body>
+<body data-decap-edit>
 
     <!-- Preloader -->
     <div class="preloader-bg"></div>
@@ -142,7 +142,7 @@ video {
             <!-- The opacity on the image is made with "data-overlay-dark="number". You can change it using the numbers 0-9. -->
             <div class="video-fullscreen-video" data-overlay-dark="2">
              <video autoplay loop muted playsinline preload="auto" width="100%">
-  <source src="https://res.cloudinary.com/dtfx1jpkq/video/upload/q_auto,f_auto/JMC_Grand_Avenue___Conquer_the_Wild_pxtk30" type="video/mp4">
+  <source src="{{ page.hero.video_url }}" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -160,33 +160,17 @@ video {
     <section class="process-number mt--120 mb-60">
         <div class="container">
             <div class="row">
+                {% for process_item in page.process %}
                 <div class="col-lg-4 col-md-12 mb-30">
                     <div class="item">
                         <div class="con">
-                            <div class="no">1</div>
-                            <h5>Escolha Um Carro</h5>
-                            <p>Veja a nossa gama de carros, encontre o seu carro perfeito para os próximos anos.</p>
+                            <div class="no">{{ loop.index }}</div>
+                            <h5>{{ process_item.title }}</h5>
+                            <p>{{ process_item.description }}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 mb-30">
-                    <div class="item">
-                        <div class="con">
-                            <div class="no">2</div>
-                            <h5>Entre em Contacto</h5>
-                            <p>A nossa equipa de consultores está pronta para o ajudar com o processo de compra.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 mb-30">
-                    <div class="item">
-                        <div class="con">
-                            <div class="no">3</div>
-                            <h5>Desfrute da Viatura</h5>
-                            <p>Receba a chave e desfrute do seu carro. Garantimos a sua satisfação.</p>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -196,35 +180,13 @@ video {
     <div class="row align-items-center">
       <div class="col-lg-6 col-md-12 mb-30">
         <div class="content">
-          <div class="section-subtitle">JMC Motors Angola</div>
+          <div class="section-subtitle">{{ page.about.subtitle }}</div>
           <div class="section-title">
-            Muito mais que <span>venda de veículos comerciais</span>
+            {{ page.about.title }}
           </div>
           <p class="mb-30">
-            Somos o representante oficial da JMC em Angola, trazendo robustez, fiabilidade e
-            economia em cada pick‑up, SUV ou veículo comercial leve. A nossa missão é garantir
-            soluções personalizadas e suporte contínuo para clientes e empresas.
+            {{ page.about.content }}
           </p>
-          <ul class="list-unstyled list mb-30">
-            <li>
-              <div class="list-icon"><span class="ti-check"></span></div>
-              <div class="list-text">
-                <p>Pick‑ups potentes e duráveis</p>
-              </div>
-            </li>
-            <li>
-              <div class="list-icon"><span class="ti-check"></span></div>
-              <div class="list-text">
-                <p> espaçosos com garantia de fábrica</p>
-              </div>
-            </li>
-            <li>
-              <div class="list-icon"><span class="ti-check"></span></div>
-              <div class="list-text">
-                <p>Serviço e manutenção autorizada</p>
-              </div>
-            </li>
-          </ul>
           <a href="sobre.html" class="button-1">
             Saber Mais <span class="ti-arrow-top-right"></span>
           </a>
@@ -232,9 +194,9 @@ video {
       </div>
 
        <div class="col-lg-5 offset-lg-1 col-md-12">
-                    <div class="item"> <img src="img/about.webp" class="img-fluid" alt="">
+                    <div class="item"> <img src="{{ page.about.image }}" class="img-fluid" alt="">
                         <div class="curv-butn icon-bg">
-                            <a href="https://www.youtube.com/watch?v=LP472BC8hT8" class="vid">
+                            <a href="{{ page.about.video_url }}" class="vid">
                                 <div class="icon"> <i class="ti-control-play"></i> </div>
                             </a>
                             <div class="br-left-top">
@@ -252,134 +214,38 @@ video {
                 </div>
     </div>
   </div>
-</section>
 
     <!-- divider line -->
     <div class="line-vr-section"></div>
 
 
 
-    <section data-scroll-index="1" class="background bg-img bg-fixed section-padding" data-overlay-dark="5" data-background="img/maxresdefault.jpg">
+    <section data-scroll-index="1" class="background bg-img bg-fixed section-padding" data-overlay-dark="5" data-background="{{ page.filda.background_image }}">
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center mb-15">
-        <div class="section-subtitle" style="color: #f5b754;">Visite-nos</div>
-        <div class="section-title">FILDA 2025 - JMC ANGOLA</div>
+        <div class="section-subtitle" style="color: #f5b754;">{{ page.filda.subtitle }}</div>
+        <div class="section-title">{{ page.filda.title }}</div>
         <p class="text-light mb-30" >
-          A experiência na FILDA foi incrível com a presença da JMC ANGOLA! Inovação, potência e estilo que marcaram o evento.
+          {{ page.filda.description }}
         </p>
       </div>
     </div>
 
       <div class="row gallery-items">
+                {% for item in page.filda.gallery %}
                 <div class="col-lg-4 col-md-6 single-item luxurycars mb-15">
-                    <a href="img/filda/1.webp" title="" class="gallery-masonry-item-img-link img-zoom">
+                    <a href="{{ item.image }}" title="" class="gallery-masonry-item-img-link img-zoom">
                         <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/filda/1.webp" class="img-fluid mx-auto d-block" alt=""> </div>
+                            <div class="gallery-img"> <img src="{{ item.image }}" class="img-fluid mx-auto d-block" alt=""> </div>
                             <div class="bottom-fade"></div>
                             <div class="gallery-detail">
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-4 col-md-6 single-item sportcars mb-15">
-                    <a href="img/filda/2.webp" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/filda/2.webp" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="bottom-fade"></div>
-                            <div class="gallery-detail">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 single-item sportcars mb-15">
-                    <a href="img/filda/3.webp" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/filda/3.webp" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="bottom-fade"></div>
-                            <div class="gallery-detail">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-6 single-item suv mb-15">
-                    <a href="img/filda/4.webp" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/filda/4.webp" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="bottom-fade"></div>
-                            <div class="gallery-detail">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                 <div class="col-lg-4 col-md-6 single-item suv mb-15">
-                    <a href="img/filda/5.webp" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/filda/5.webp" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="bottom-fade"></div>
-                            <div class="gallery-detail">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                  <div class="col-lg-4 col-md-6 single-item suv mb-15">
-                    <a href="img/filda/6.webp" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/filda/6.webp" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="bottom-fade"></div>
-                            <div class="gallery-detail">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-
-
-                <div class="col-lg-4 col-md-6 single-item suv mb-15">
-                    <a href="img/filda/7.webp" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/filda/7.webp" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="bottom-fade"></div>
-                            <div class="gallery-detail">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                 <div class="col-lg-4 col-md-6 single-item suv mb-15">
-                    <a href="img/filda/8.webp" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/filda/8.webp" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="bottom-fade"></div>
-                            <div class="gallery-detail">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                  <div class="col-lg-4 col-md-6 single-item suv mb-15">
-                    <a href="img/filda/9.webp" title="" class="gallery-masonry-item-img-link img-zoom">
-                        <div class="gallery-box">
-                            <div class="gallery-img"> <img src="img/filda/9.webp" class="img-fluid mx-auto d-block" alt=""> </div>
-                            <div class="bottom-fade"></div>
-                            <div class="gallery-detail">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-             
-            </div>
-
-
+                {% endfor %}
+      </div>
   </div>
 </section>
 
@@ -388,71 +254,30 @@ video {
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center mb-30">
-        <div class="section-subtitle">Escolha o Seu Modelo</div>
-        <div class="section-title">Frota de <span>Carros JMC</span></div>
+        <div class="section-subtitle">{{ page.car_fleet.subtitle }}</div>
+        <div class="section-title">{{ page.car_fleet.title }}</div>
       </div>
     </div>
 <div class="row">
   <div class="col-md-12">
     <div class="owl-carousel owl-theme">
-      
-      <!-- JMC Vigus (Pickup Truck) -->
+      {% for car in page.car_fleet.cars %}
       <div class="item">
-        <a href="vigus.html" class="img">
-          <img src="img/blog/8.webp" alt="JMC Vigus" class="img-fluid">
+        <a href="{{ car.link }}" class="img">
+          <img src="{{ car.image }}" alt="{{ car.name }}" class="img-fluid">
           <div class="bottom-fade"></div>
           <div class="arrow"><i class="ti-arrow-right"></i></div>
         </a>
         <div class="info">
-          <div class="title"><a href="vigus.html">VIGUS</a></div>
+          <div class="title"><a href="{{ car.link }}">{{ car.name }}</a></div>
           <div class="details">
-            <span><i class="omfi-passengers"></i> 5 Lugares</span> <!-- Double cab pickup -->
-            <span><i class="omfi-transmission"></i> Automático 6v</span> <!-- 6-speed auto common -->
-            <span><i class="omfi-luggage"></i> 1.1T Carga</span> <!-- Typical payload -->
+            {% for detail in car.details %}
+            <span><i class="{{ detail.icon }}"></i> {{ detail.text }}</span>
+            {% endfor %}
           </div>
         </div>
       </div>
-
-      <!-- JMC Grand Avenue (Premium SUV) -->
-      <div class="item">
-        <a href="grand-avenue.html" class="img">
-          <img src="img/blog/6.webp" alt="JMC Grand Avenue" class="img-fluid">
-          <div class="bottom-fade"></div>
-          <div class="arrow"><i class="ti-arrow-right"></i></div>
-        </a>
-        <div class="info">
-          <div class="title"><a href="grand-avenue.html">GRAND AVENUE</a></div>
-          <div class="details">
-            <span><i class="omfi-passengers"></i> 5 Lugares</span> <!-- 3-row SUV -->
-            <span><i class="omfi-transmission"></i> Automático 8v</span> <!-- ZF 8-speed -->
-            <span><i class="fas fa-gas-pump"></i> Diesel</span> <!-- Fuel type -->
-          </div>
-        </div>
-      </div>
-
-      <!-- JMC Touring (Family SUV) -->
-      <div class="item">
-        <a href="touring.html" class="img">
-          <img src="img/car_model/Touring/touring.webp" alt="JMC Touring" class="img-fluid">
-          <div class="bottom-fade"></div>
-          <div class="arrow"><i class="ti-arrow-right"></i></div>
-        </a>
-        <div class="info">
-          <div class="title"><a href="touring.html">TOURING</a></div>
-          <div class="details">
-            <span><i class="omfi-passengers"></i> 15 Lugares</span> <!-- Standard 5-seater -->
-            <span><i class="omfi-transmission"></i> Manual 6v</span> <!-- Base models often manual -->
-            <span><i class="omfi-luggage"></i> 580L Porta-malas</span> <!-- Trunk capacity -->
-          </div>
-        </div>
-      </div>
-
-      <!-- JMC Carring (Passenger Van) -->
-
-
-      <!-- JMC Carring Plus (Refrigerated) -->
-
-
+      {% endfor %}
     </div>
   </div>
 </div>
@@ -464,20 +289,19 @@ video {
       </div>
     </div>
   </div>
-</section>
 
 
 
 
     <!-- Booking Search -->
-<section data-scroll-index="1" class="background bg-img bg-fixed section-padding" data-overlay-dark="5" data-background="img/slider/2.webp">
+<section data-scroll-index="1" class="background bg-img bg-fixed section-padding" data-overlay-dark="5" data-background="{{ page.booking.background_image }}">
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center mb-15">
-        <div class="section-subtitle" style="color: #f5b754;">Visite-nos</div>
-        <div class="section-title">Agende a Sua Visita ao Showroom</div>
+        <div class="section-subtitle" style="color: #f5b754;">{{ page.booking.subtitle }}</div>
+        <div class="section-title">{{ page.booking.title }}</div>
         <p class="text-light mb-30">
-          Estamos localizados na Via Expressa, junto à paragem da Mutamba, Luanda. Preencha o formulário e teremos todo o prazer em recebê-lo.
+          {{ page.booking.description }}
         </p>
       </div>
     </div>
@@ -535,7 +359,6 @@ video {
       </form>
     </div>
   </div>
-</section>
 
 
     <!-- divider line -->
@@ -546,53 +369,34 @@ video {
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center mb-30">
-        <div class="section-subtitle">Escolha o Seu Modelo</div>
-        <div class="section-title">Frota de <span>Caminhões JMC</span></div>
+        <div class="section-subtitle">{{ page.truck_fleet.subtitle }}</div>
+        <div class="section-title">{{ page.truck_fleet.title }}</div>
       </div>
     </div>
 <div class="row">
   <div class="col-md-12">
     <div class="owl-carousel owl-theme">
-
-      <!-- JMC Carring Plus (Commercial Refrigerated Van) -->
+      {% for truck in page.truck_fleet.trucks %}
       <div class="item">
-        <a href="carryingplus.html" class="img">
-          <img src="img/car_model/CarringPlus/carringplus.webp" alt="JMC Carring Plus" class="img-fluid">
+        <a href="{{ truck.link }}" class="img">
+          <img src="{{ truck.image }}" alt="{{ truck.name }}" class="img-fluid">
           <div class="bottom-fade"></div>
           <div class="arrow"><i class="ti-arrow-right"></i></div>
         </a>
         <div class="info">
-          <div class="title"><a href="carryingplus.html">CARRING PLUS</a></div>
+          <div class="title"><a href="{{ truck.link }}">{{ truck.name }}</a></div>
           <div class="details">
-            <span><i class="fas fa-snowflake"></i> -18°C Refrigeração</span>
-            <span><i class="fas fa-weight-hanging"></i> 3.5T Carga</span>
-            <span><i class="omfi-transmission"></i> Manual 5v</span>
+            {% for detail in truck.details %}
+            <span><i class="{{ detail.icon }}"></i> {{ detail.text }}</span>
+            {% endfor %}
           </div>
         </div>
       </div>
-
-      <!-- JMC Carring (Commercial Van) -->
-      <div class="item">
-        <a href="carrying.html" class="img">
-          <img src="img/car_model/Carring/carringsale.webp" alt="JMC Carring" class="img-fluid">
-          <div class="bottom-fade"></div>
-          <div class="arrow"><i class="ti-arrow-right"></i></div>
-        </a>
-        <div class="info">
-          <div class="title"><a href="carrying.html">CARRING</a></div>
-          <div class="details">
-            <span><i class="omfi-passengers"></i> 2 Lugares (cabina)</span>
-            <span><i class="fas fa-truck-loading"></i> 15m³ Carga</span>
-            <span><i class="omfi-engine"></i> 2.4L Turbo Diesel</span>
-          </div>
-        </div>
-      </div>
-
+      {% endfor %}
     </div>
   </div>
 </div>
   </div>
-</section>
 
  
     <!-- divider line -->
@@ -608,20 +412,21 @@ video {
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 text-center mb-30">
-                <div class="section-subtitle">Passos</div>
-                <div class="section-title white">Processo de <span>Compra</span></div>
+                <div class="section-subtitle">{{ page.purchase_process.subtitle }}</div>
+                <div class="section-title white">{{ page.purchase_process.title }}</div>
             </div>
         </div>
         <div class="row">
+            {% for step in page.purchase_process.steps %}
             <div class="col-md-4 mb-30">
                 <div class="item">
                     <div class="text">
-                        <h5>Escolha o Carro</h5>
-                        <p>Explore nossa variedade de modelos e escolha o carro ideal para você.</p>
+                        <h5>{{ step.title }}</h5>
+                        <p>{{ step.description }}</p>
                     </div>
                     <div class="numb">
                         <div class="numb-curv">
-                            <div class="number">01.</div>
+                            <div class="number">0{{ loop.index }}.</div>
                             <div class="shap-left-top">
                                 <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
                                     <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"/>
@@ -636,52 +441,7 @@ video {
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-30">
-                <div class="item">
-                    <div class="text">
-                        <h5>Contato com o Vendedor</h5>
-                        <p>Nossa equipe está pronta para esclarecer dúvidas e ajudar com o processo de compra.</p>
-                    </div>
-                    <div class="numb">
-                        <div class="numb-curv">
-                            <div class="number">02.</div>
-                            <div class="shap-left-top">
-                                <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
-                                    <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"/>
-                                </svg>
-                            </div>
-                            <div class="shap-right-bottom">
-                                <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
-                                    <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-30">
-                <div class="item">
-                    <div class="text">
-                        <h5>Finalize a Compra</h5>
-                        <p>Assine os documentos, faça o pagamento e receba seu novo carro com toda a garantia.</p>
-                    </div>
-                    <div class="numb">
-                        <div class="numb-curv">
-                            <div class="number">03.</div>
-                            <div class="shap-left-top">
-                                <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
-                                    <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"/>
-                                </svg>
-                            </div>
-                            <div class="shap-right-bottom">
-                                <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
-                                    <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="row justify-content-center">
             <div class="col-md-12 text-center mt-15">
@@ -689,7 +449,6 @@ video {
             </div>
         </div>
     </div>
-</section>
 
 
 
@@ -703,12 +462,12 @@ video {
 
 
     <!-- Video -->
-    <section class="video-wrapper video section-padding bg-img bg-fixed" data-overlay-dark="4" data-background="img/slider/1.webp">
+    <section class="video-wrapper video section-padding bg-img bg-fixed" data-overlay-dark="4" data-background="{{ page.video_section.background_image }}">
 <div class="container"> 
     <div class="row">
         <div class="col-md-12 text-center">
-            <div class="section-subtitle" style="color: #f5b754;">Explorar</div>
-            <div class="section-title white">Grand <span>Avenue</span></div>
+            <div class="section-subtitle" style="color: #f5b754;">{{ page.video_section.subtitle }}</div>
+            <div class="section-title white">{{ page.video_section.title }}</div>
         </div>
     </div>
     <div class="row">
@@ -726,7 +485,7 @@ video {
     <div class="modal-content bg-black">
       <div class="modal-body p-0">
         <video autoplay controls loop muted playsinline style="width: 100%;">
-            <source src="https://res.cloudinary.com/dtfx1jpkq/video/upload/q_auto,f_auto/Grand_Avenue_Pro___Drive_Beyond_Limits_f596xz" type="video/mp4">
+            <source src="{{ page.video_section.video_url }}" type="video/mp4">
         </video>
       </div>
     </div>
@@ -740,11 +499,12 @@ video {
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center mb-30">
-        <div class="section-subtitle">Testemunhos</div>
-        <div class="section-title">O Que os Clientes Dizem</div>
+        <div class="section-subtitle">{{ page.testimonials.subtitle }}</div>
+        <div class="section-title">{{ page.testimonials.title }}</div>
       </div>
       <div class="col-md-12">
         <div class="owl-carousel owl-theme">
+          {% for testimonial in page.testimonials.items %}
           <div class="item">
             <div class="stars"> <span class="rate">
                 <i class="fa-solid fa-star"></i>
@@ -765,11 +525,11 @@ video {
               </div>
             </div> <i class="fa-solid fa-quote-left"></i>
             <div class="text">
-              <p>Fiquei muito satisfeito com o serviço. Aqui em Luanda é difícil encontrar algo assim, sério e com qualidade. Recomendo a todos os amigos e família!</p>
+              <p>{{ testimonial.quote }}</p>
             </div>
             <div class="info mt-30">
               <div class="img-curv">
-                <div class="img"> <img src="img/team/1.jpg" alt=""> </div>
+                <div class="img"> <img src="{{ testimonial.image }}" alt=""> </div>
                 <div class="shap-left-top">
                   <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
                     <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"></path>
@@ -782,102 +542,16 @@ video {
                 </div>
               </div>
               <div class="ml-30">
-                <h6>João Silva</h6>
-                <p>Cliente</p>
+                <h6>{{ testimonial.author }}</h6>
+                <p>{{ testimonial.role }}</p>
               </div>
             </div>
           </div>
-
-          <div class="item">
-            <div class="stars"> <span class="rate">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </span>
-              <div class="shap-left-top">
-                <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
-                  <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"></path>
-                </svg>
-              </div>
-              <div class="shap-right-bottom">
-                <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
-                  <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"></path>
-                </svg>
-              </div>
-            </div> <i class="fa-solid fa-quote-left"></i>
-            <div class="text">
-              <p>O atendimento foi excelente e rápido. Me ajudaram a resolver tudo sem stress, coisa que nem sempre se vê por cá. Parabéns à equipa!</p>
-            </div>
-            <div class="info mt-30">
-              <div class="img-curv">
-                <div class="img"> <img src="img/team/4.jpg" alt=""> </div>
-                <div class="shap-left-top">
-                  <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
-                    <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"></path>
-                  </svg>
-                </div>
-                <div class="shap-right-bottom">
-                  <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
-                    <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"></path>
-                  </svg>
-                </div>
-              </div>
-              <div class="ml-30">
-                <h6>Maria Fernandes</h6>
-                <p>Cliente</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="stars"> <span class="rate">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </span>
-              <div class="shap-left-top">
-                <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
-                  <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"></path>
-                </svg>
-              </div>
-              <div class="shap-right-bottom">
-                <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
-                  <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"></path>
-                </svg>
-              </div>
-            </div> <i class="fa-solid fa-quote-left"></i>
-            <div class="text">
-              <p>Desde que comecei a usar este serviço, tudo ficou mais simples. Recomendo para quem procura qualidade e confiança aqui em Angola.</p>
-            </div>
-            <div class="info mt-30">
-              <div class="img-curv">
-                <div class="img"> <img src="img/team/6.jpg" alt=""> </div>
-                <div class="shap-left-top">
-                  <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
-                    <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"></path>
-                  </svg>
-                </div>
-                <div class="shap-right-bottom">
-                  <svg viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
-                    <path d="M11 1.54972e-06L0 0L2.38419e-07 11C1.65973e-07 4.92487 4.92487 1.62217e-06 11 1.54972e-06Z" fill="#1b1b1b"></path>
-                  </svg>
-                </div>
-              </div>
-              <div class="ml-30">
-                <h6>António Lopes</h6>
-                <p>Cliente</p>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
   </div>
-</section>
 
     <!-- divider line -->
     <div class="line-vr-section"></div>
@@ -886,93 +560,31 @@ video {
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center mb-30">
-                <div class="section-subtitle">Nosso Blog</div>
-                <div class="section-title">Últimas <span>Notícias</span></div>
+                <div class="section-subtitle">{{ page.blog.subtitle }}</div>
+                <div class="section-title">{{ page.blog.title }}</div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="owl-carousel owl-theme">
+                    {% for post in page.blog.posts %}
                     <div class="item">
-                        <img src="https://omo-oss-image.thefastimg.com/portal-saas/pg2024091816575240554/cms/image/b12510d8-5206-4e1c-86ab-bef647e4f13c.jpg_1180xaf.jpg" class="img-fluid" alt="JMC na Expo do Oriente Médio">
+                        <img src="{{ post.image }}" class="img-fluid" alt="{{ post.title }}">
                         <div class="bottom-fade"></div>
                         <div class="title">
-                            <h6>Expansão Global</h6>
-                            <h4>JMC marca presença na Expo do Oriente Médio</h4>
+                            <h6>{{ post.category }}</h6>
+                            <h4>{{ post.title }}</h4>
                         </div>
                         <div class="curv-butn icon-bg">
-                            <a href="https://www.jmcg-global.com/news/2/" class="vid">
+                            <a href="{{ post.link }}" class="vid">
                                 <div class="icon">
-                                    <i class="icon-show"><span>09<br><i>Mai</i></span></i>
+                                    <i class="icon-show"><span>{{ post.date | date: "%d" }}<br><i>{{ post.date | date: "%b" }}</i></span></i>
                                     <i class="ti-arrow-top-right icon-hidden"></i>
                                 </div>
                             </a>
                         </div>
                     </div>
-                    <div class="item">
-                        <img src="https://i.ytimg.com/vi/5YF5InQHXjI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAs6LZ8MFbenqaJjxYl0V03tJ1pYg" class="img-fluid" alt="JMC no Quênia">
-                        <div class="bottom-fade"></div>
-                        <div class="title">
-                            <h6>Expansão Africana</h6>
-                            <h4>JMC entra no mercado do Quênia com novos modelos</h4>
-                        </div>
-                        <div class="curv-butn icon-bg">
-                            <a href="https://english.news.cn/africa/20250328/a9e92d192705413ebd5569f1abe4fc32/c.html" class="vid">
-                                <div class="icon">
-                                    <i class="icon-show"><span>28<br><i>Mar</i></span></i>
-                                    <i class="ti-arrow-top-right icon-hidden"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="https://www.chinatrucks.org/uploadfile/2025/0424/20250424090551280.jpg" class="img-fluid" alt="JMC e Bosch na Auto Shanghai">
-                        <div class="bottom-fade"></div>
-                        <div class="title">
-                            <h6>Inovação Tecnológica</h6>
-                            <h4>JMC e Bosch apresentam solução de caminhão leve na Auto Shanghai</h4>
-                        </div>
-                        <div class="curv-butn icon-bg">
-                            <a href="https://www.chinavehicle.org/news/50781.html" class="vid">
-                                <div class="icon">
-                                    <i class="icon-show"><span>24<br><i>Abr</i></span></i>
-                                    <i class="ti-arrow-top-right icon-hidden"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="https://www.chinatrucks.com/uploadfile/2024/1115/20241115043434568.jpg" class="img-fluid" alt="Lançamento da plataforma elétrica da JMC">
-                        <div class="bottom-fade"></div>
-                        <div class="title">
-                            <h6>Mobilidade Sustentável</h6>
-                            <h4>JMC lança plataforma de veículos comerciais elétricos na Auto Guangzhou</h4>
-                        </div>
-                        <div class="curv-butn icon-bg">
-                            <a href="https://www.marklines.com/en/news/318036" class="vid">
-                                <div class="icon">
-                                    <i class="icon-show"><span>15<br><i>Nov</i></span></i>
-                                    <i class="ti-arrow-top-right icon-hidden"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="https://www.autohebdo.fr/app/uploads/2024/03/DPPI_00124002_1102.jpg" class="img-fluid" alt="JMC no Grand Prêmio do Bahrein">
-                        <div class="bottom-fade"></div>
-                        <div class="title">
-                            <h6>Presença no Esporte</h6>
-                            <h4>JMC participa como veículo oficial no Grande Prêmio do Bahrein</h4>
-                        </div>
-                        <div class="curv-butn icon-bg">
-                            <a href="https://www.chinaevs.org/news/2025/1030.html" class="vid">
-                                <div class="icon">
-                                    <i class="icon-show"><span>09<br><i>Mai</i></span></i>
-                                    <i class="ti-arrow-top-right icon-hidden"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -981,19 +593,18 @@ video {
 
 
     <!-- Lets Talk -->
-<section class="lets-talk bg-img bg-fixed section-padding" data-overlay-dark="5" data-background="img/slider/1.webp">
+<section class="lets-talk bg-img bg-fixed section-padding" data-overlay-dark="5" data-background="{{ page.lets_talk.background_image }}">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h6 style="color: #f5b754;">Representante em Angola</h6>
-                <h5>Entre em contacto</h5>
-                <p>Paragem da Mutamba, via expresse. Para mais informações online, visite nosso site.</p>
+                <h6 style="color: #f5b754;">{{ page.lets_talk.subtitle }}</h6>
+                <h5>{{ page.lets_talk.title }}</h5>
+                <p>{{ page.lets_talk.description }}</p>
                 <a href="https://wa.me/244928283666" target="_blank" class="button-1 mt-15 mb-15 mr-10"><i class="fa-brands fa-whatsapp"></i> WhatsApp </a>
                 <a data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" href="#0" class="button-2 mt-15 mb-15">Contactar Agora <span class="ti-arrow-top-right"></span></a>
             </div>
         </div>
     </div>
-</section>
 
 <!-- Footer -->
 <footer class="footer clearfix">
@@ -1215,8 +826,7 @@ video {
     <script src="js/datepicker.js"></script>
     <script src="js/YouTubePopUp.js"></script>
     <script src="js/vegas.slider.min.js"></script>
-    <script src="js/custom.js"></script>~
-
+    <script src="js/custom.js"></script>
         <script>
       $('.owl-carousel-h').owlCarousel({
     margin:10,
